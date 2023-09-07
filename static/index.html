@@ -1,58 +1,40 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
-    <title>Calculator for school
-    </title>
-    <meta property="og:title" content="Calculator For School" />
-    <meta property="og:description" content="Welcome back!" />
-  </head>
-  <body>
-    <div id="container">
-      <div id="calculator">
-        <div id="result">
-          <div id="history">
-            <p id="history-value">
-            </p>
-          </div>
-          <div id="output">
-            <p id="output-value">
-            </p>
-          </div>
-        </div>
-        <div id="keyboard">
-          <button class="operator" id="clear">C</button>
-          <button class="operator" id="backspace">CE</button>
-          <button class="operator" id="%">%</button>
-          <button class="operator" id="/">&#247;</button>
-          <button class="number" id="7" onclick="reset()">7</button>
-          <button class="number" id="8" onclick="reset()">8</button>
-          <button class="number" id="9" onclick="reset()">9</button>
-          <button class="operator" id="*">&times;</button>
-          <button class="number" id="4" onclick="reset()">4</button>
-          <button class="number" id="5" onclick="reset()">5</button>
-          <button class="number" id="6" onclick="reset()">6</button>
-          <button class="operator" id="-">-</button>
-          <button class="number" id="1" onclick="reset()">1</button>
-          <button class="number" id="2" onclick="reset()">2</button>
-          <button class="number" id="3" onclick="reset()">3</button>
-          <button class="operator" id="+">+</button>
-          <button class="zero" id="0" onclick="reset()">0</button>
-          
-          <button class="operator" id="=">=</button>
-        </div>
-      </div>
-    </div>
-    <script>
-      var count = 0;
-      var c = 0;
-      
-      function reset() {
-        count = 0;
-        c = 0;
-      };
-    </script>
-    <script src="script.js"></script>
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<title>Imagine | NODE js</title>
+		<meta name="description" content="blah blah blah" />
+		<meta name="keywords" content="proxy, web proxy, ultraviolet, service workers, unblock websites, unblock chromebook, free web proxy, proxy list, proxy sites, un block chromebook, online proxy, proxy server, proxysite, proxy youtube, bypass securly, bypass iboss, bypass lightspeed filter, holy unblocker, chromebooks, unblock youtube, youtube proxy, unblocked youtube, youtube unblocked" />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
+		<meta name="googlebot" content="index, follow, snippet" />
+		<link rel="shortcut icon" content="https://10k0s.vercel.app/images/logo.png/">
+		<link rel="stylesheet" href="search.css" />
+	</head>
+
+	<body>
+		<div class="flex-center logo-wrapper header-center">
+			<img class="logo" src="https://10k0s.vercel.app/images/logo.png"/>
+			<h1>Imagine</h1>
+		</div>
+
+		<div class="flex-center desc">
+			<p id="description">Imagine Node, Updated version of node js support</p>
+		</div>
+
+		<form id="uv-form" class="flex-center">
+			<input id="uv-address" placeholder="Search the web freely" />
+		</form>
+
+		<p id="error"></p>
+		<code id="error-code"></code>
+
+		<footer>
+		</footer>
+
+		<script src="uv/uv.bundle.js"></script>
+		<script src="uv/uv.config.js"></script>
+		<script src="register-sw.js"></script>
+		<script src="index.js"></script>
+	</body>
 </html>

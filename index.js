@@ -8,10 +8,10 @@ import serveStatic from "serve-static";
 const bare = createBareServer("/bare/");
 const serve = serveStatic(fileURLToPath(new URL("./static/", import.meta.url)), { fallthrough: false });
 var server, PORT;
-if(existsSync("key.pem") && existsSync("cert.pem")) {
+if(existsSync("./ssl/defualt.key") && existsSync("./ssl/defualt.cert")) {
   server = createHttpsServer({
-    key: readFileSync("key.pem"),
-    cert: readFileSync("cert.pem")
+    key: readFileSync("defualt.key"),
+    cert: readFileSync("defualt.cert")
   });
   PORT = 443;
 } else { server = createHttpServer(); PORT = (process.env.PORT || 8080);}

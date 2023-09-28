@@ -1,6 +1,6 @@
 "use strict";
-const form = document.getElementById("uv-form");
-const input = document.getElementById("uv-address");
+const form = document.getElementById("form");
+const input = document.getElementById("address");
 const error = document.getElementById("error");
 const errorCode = document.getElementById("error-code");
 
@@ -20,7 +20,7 @@ form.addEventListener("submit", async (event) => {
   } catch (err) {
     error.textContent = "Failed to register service worker.";
     errorCode.textContent = err.toString();
-    throw err;
+    
   }
   let url = input.value.trim();
   if (!isUrl(url)) url = "https://www.google.com/search?q=" + url;

@@ -5,21 +5,42 @@ body {
     z-index: -1;
     height: 100%;
   }
+
+  .main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+  
   form input {
     background: none;
     font-family: inherit;
     padding: 0px 17px;
     height: 48px;
     border: 1px solid #808080;
-    color: var(--text-color);
+    color: #fff; /* Font color set to white */
     width: 350px;
     margin-top: 5px;
     border-radius: 50px;
-    color: #fff;
     z-index: 9;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
 
-  }
+/* Focus state */
+form input:focus {
+    border-color: #666; /* Change the color as desired */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow when the input is focused */
+    outline: none; /* Removes the default browser outline */
+}
 
+/* Placeholder style */
+form input::placeholder {
+    color: #aaa; /* Lighter shade for the placeholder */
+}
 
   
 
@@ -70,12 +91,6 @@ body {
     color: rgba(253, 253, 253, 0.514);
   }
   
-
-  form input:focus {
-    animation: fadeIn 0.3s forwards; /* The "forwards" keyword ensures that the animation's end state remains after completion */
-  
-    background-color: #ff6666;
-  }
 
 
 

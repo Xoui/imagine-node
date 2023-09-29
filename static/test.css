@@ -1,9 +1,9 @@
 body {
-    overflow: auto;
+    overflow-y: hidden;
     margin: 0;
     background-color: #000000;
     z-index: -1;
-
+    height: 100%;
   }
   form input {
     background: none;
@@ -19,6 +19,8 @@ body {
     z-index: 9;
 
   }
+
+
   
 
   .flex-center {
@@ -51,26 +53,17 @@ body {
     color: white;
   }
   
-  footer {
-    margin-top: auto;
-    width: 93%;
-    align-self: center;
-    height: 80px;
-    display: flex;
-    justify-content: left;
-    align-items: center;
+
+  .footer{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+    height: 0;
+    width: 0; 
+    display: block;
   }
-  
-  footer a {
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 15px;
-    cursor: pointer;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
+  html { height: 100% }
+
   
   .desc p {
     width: 560px;

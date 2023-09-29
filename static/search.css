@@ -40,31 +40,7 @@ body {
   color: white;
 }
 
-footer {
-  margin-top: auto;
-  width: 93%;
-  align-self: center;
-  height: 80px;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
 
-footer a {
-  margin: 0 15px;
-  text-decoration: none;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-.desc p {
-  width: 560px;
-  color: rgba(253, 253, 253, 0.514);
-}
 
 form input {
   background: none;

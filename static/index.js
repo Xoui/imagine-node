@@ -29,3 +29,24 @@ form.addEventListener("submit", async (event) => {
 
   window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
 });
+
+
+//skidded code from uh ELIXIR he let me.
+
+function openURL(url) {
+  window.navigator.serviceWorker
+  .register("./uv.js", {
+    scope: __uv$config.prefix,
+  })
+  .then(() => {
+    if (!isUrl(url)) url = getSearchEngineURL() + url;
+    else if (!(url.startsWith("https://") || url.startsWith("http://")))
+      url = "http://" + url;
+
+    if (getAboutBlank() === 'on') {
+      openAboutBlank(window.location.href.slice(0, -1) + __uv$config.prefix + __uv$config.encodeUrl(url));
+    } else {
+      window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+    }
+  });
+};

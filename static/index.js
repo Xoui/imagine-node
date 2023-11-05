@@ -114,7 +114,7 @@ function isUrl(val = "") {
 // open url function
 function openURL(url) {
     window.navigator.serviceWorker
-    .register("./uv.js", {
+    .register("./sw.js", {
       scope: __uv$config.prefix,
     })
     .then(() => {

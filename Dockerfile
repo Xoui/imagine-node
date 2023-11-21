@@ -1,12 +1,20 @@
-FROM lscr.io/linuxserver/kasm:latest
+# Use an official Node.js runtime as a base image
+FROM node:latest
 
-ENV KASM_PORT=443
-ENV DOCKER_HUB_USERNAME=USER
-ENV DOCKER_HUB_PASSWORD=PASS
-ENV DOCKER_MTU=1500
+# Set the working directory inside the container
+WORKDIR /usr/src/app
 
-VOLUME /imagine-node:/opt
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-EXPOSE 3000 443
+# Install application dependencies
+RUN npm install
 
-CMD ["sh", "-c", "echo 'Starting Kasm...' && /bin/bash"]
+# Copy the rest of the application source code to the working directory
+COPY . .
+
+# Expose the port on which your Node.js app runs (replace 3000 with your app's port if necessary)
+EXPOSE 8000
+
+# Command to start the application
+CMD ["npm", "start"]

@@ -212,3 +212,78 @@ form input::placeholder {
 .fade-in {
   animation: fadeIn 1s ease-in-out;
 }
+
+
+
+
+
+ 
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+.navbar {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center;
+  background-color: #333; /* Set background color */
+  padding: 10px;
+}
+
+.app-link,
+.game-link {
+  text-decoration: none;
+  color: white;
+  font-family: 'Press Start 2P', cursive; /* Use a desired font */
+  margin: 0 10px; /* Add some spacing between links */
+  position: relative;
+}
+
+.game-link i {
+  margin-right: 5px;
+}
+
+.game-link::before,
+.app-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.game-link:hover::before {
+  background-color: white; /* Change color on hover */
+}
+
+.app-link:hover::before {
+  background-color: yellow; /* Different color for the Apps link */
+}
+
+
+
+
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -400px; /* Initially hidden */
+  height: 100%;
+  width: 400px; /* Increased width */
+  background-color: #5c968c;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.3); /* Add a shadow for a bordered effect */
+}
+
+.sidebar.active {
+  left: 0; /* Slide in from the left */
+}
+
+/* Sidebar content styles */
+.sidebar-content {
+  padding: 20px;
+}

@@ -17,7 +17,7 @@
 
 <body>
     <nav class="navbar">
-        <a onclick="toggleSidebar()" class="app-link">Apps</a>
+        <a href="apps.html" class="app-link">Apps</a>
         <a href="#" class="game-link"><i class="fas fa-gamepad"></i> Games</a>
       </nav>
       
@@ -40,6 +40,9 @@ c
 
 
 
+
+
+
     <form id="form" class="flex-center">
         <input id="address" placeholder="put url in" />
         <h5>test</h5>
@@ -48,33 +51,9 @@ c
    
 
 
-    <div class="sidebar" id="sidebar">
-        <h2>Sidebar Content</h2>
-        asdasdsadsa
-        <p>Your sidebar content goes here.</p>
-    </div>
 
 
-    <script>
-    function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('active');
-            
-            // Check if the sidebar is active
-            if (sidebar.classList.contains('active')) {     
-                // Load new content into the sidebar when it's toggled
-                sidebar.innerHTML = `
-                    <button onclick="openURL('https://spotify.com')">
-                    <img src="https://clipground.com/images/png-spotify-1.png" width="100" alt="your-image-alt">
-                    <br>
-                    </button>
-                    <p>Google</p>
-                    
-                `;
-            }
-        }
-    </script>
-
+ 
 
     <script src="index.js"></script>
     <script src="uv/uv.bundle.js"></script>

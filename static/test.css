@@ -3,7 +3,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
-  background-color: #1a1a1a;
+  background-image: url(Untitled.png);
 }
 
   .main-wrapper {
@@ -21,7 +21,7 @@ body {
     font-family: inherit;
     padding: 0px 17px;
     height: 48px;
-    border: 1px solid #808080;
+    border: 1px solid #bc2727;
     color: #fff; /* Font color set to white */
     width: 350px;
     margin-top: 5px;
@@ -32,14 +32,14 @@ body {
 
 /* Focus state */
 form input:focus {
-    border-color: #666; /* Change the color as desired */
+    border-color: #a9c313; /* Change the color as desired */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow when the input is focused */
     outline: none; /* Removes the default browser outline */
 }
 
 /* Placeholder style */
 form input::placeholder {
-    color: #aaa; /* Lighter shade for the placeholder */
+    color: #4fb436; /* Lighter shade for the placeholder */
 }
 
   
@@ -214,7 +214,12 @@ form input::placeholder {
 }
 
 
-
+.minecraft-text {
+  color: #ffd700; /* Yellow color */
+  font-family: Arial, sans-serif; /* Use a suitable font */
+  font-size: 24px; /* Adjust the font size as needed */
+  transform: rotate(-10deg); /* Rotate the text to achieve the tilted effect */
+}
 
 
  
@@ -226,7 +231,7 @@ form input::placeholder {
   display: flex;
   justify-content: flex-end; /* Align items to the right */
   align-items: center;
-  background-color: #333; /* Set background color */
+
   padding: 10px;
 }
 

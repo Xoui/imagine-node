@@ -1,0 +1,242 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
+    <title id="tab-title">Home</title>
+    <script src="https://kit.fontawesome.com/1237c86ba0.js" crossorigin="anonymous"></script>
+    <script src="now.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      iframe {
+        display: block;
+        background: #000;
+        border: none;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .navbtn {
+        float: right;
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        position: fixed;
+        right: 10px;
+      }
+
+      .navbtn1 {
+        top: 10px;
+      }
+
+      .navbtn2 {
+        top: 70px;
+      }
+
+      .navbtn3 {
+        top: 130px;
+      }
+      .navbtn4 {
+        top: 190px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      window.addEventListener('resize', navigator.keyboard.lock(['Escape']))
+    </script>
+    <iframe
+      src=""
+      id="iframeId"
+      style="bottom: 0"
+      style="border: 0px #ffffff none"
+      name="Iframe"
+      scrolling="yes"
+      frameborder="0"
+      marginheight="0px"
+      marginwidth="0px"
+      height="100%"
+      width="100%"
+      allowfullscreen></iframe>
+
+    <button onclick="reload()" class="navbtn navbtn1">
+
+    </button>
+    <button id="home-page" class="navbtn navbtn2" onclick="reload()">
+      
+    </button>
+    <button id="fullscreen-button" class="navbtn navbtn3">
+    </button>
+    <button id="eruda-button" class="navbtn navbtn4" onclick="erudaToggle()">
+    </button>
+    <script>
+      function reload() {
+        document.getElementById('iframeId').src = document.getElementById('iframeId').src
+      }
+      // Very epic html editing :)
+      function erudaToggle() {
+        const proccy = document.getElementById('iframeId')
+        if (!proccy) return
+
+        const proccyWindow = proccy.contentWindow
+        const proccyDocument = proccy.contentDocument
+
+        if (!proccyWindow || !proccyDocument) return
+
+        if (proccyWindow.eruda?._isInit) {
+          proccyWindow.eruda.destroy()
+        } else {
+          let script = proccyDocument.createElement('script')
+          script.src = 'https://cdn.jsdelivr.net/npm/eruda'
+          script.onload = function () {
+            if (!proccyWindow) return
+            proccyWindow.eruda.init()
+            proccyWindow.eruda.show()
+          }
+          proccyDocument.head.appendChild(script)
+        }
+      }
+      const fullscreenButton = document.getElementById('fullscreen-button')
+      fullscreenButton.addEventListener('click', function () {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen()
+        } else {
+          document.exitFullscreen()
+        }
+      })
+      const homeButton = document.getElementById('home-page')
+      homeButton.addEventListener('click', function () {
+        window.location.href = './'
+      })
+      window.onload = function () {
+        let GoUrl = sessionStorage.getItem('GoUrl')
+        GoUrl = '/service/' + GoUrl
+        console.log(GoUrl)
+        document.querySelector('#iframeid').src = GoUrl
+        let iframe = document.querySelector('#iframeId')
+        iframe.src = GoUrl
+      }
+    </script>
+    <script>
+        function styledLog(message, style) {
+  console.log(`%c${message}`, style)
+}
+
+// Made by discord.gg/interstellar
+// Credits to @xbubbo and @xderpman on Discord
+// You can use this code with proper credits.
+
+var adjustmentCompleted = false
+var attempts = 0
+
+function adjustElements() {
+  if (adjustmentCompleted) {
+    console.log('%cNow.GG Adjustment already completed. Stopping script.', 'font-size: 15px; color: green;')
+    return true
+  }
+
+  var iframe = top.document.getElementById('iframeId')
+
+  if (iframe) {
+    var innerDoc = iframe.contentWindow.document
+
+    var roblox = innerDoc.getElementById('js-game-video')
+    var controlBar = innerDoc.getElementById('ng-control-bar')
+
+    if (roblox && controlBar) {
+      roblox.style.top = '415px'
+      controlBar.style.top = '91%'
+      console.log('%cSuccessfully adjusted Now.GG.', 'font-size: 15px; color: green;')
+
+      adjust()
+
+      return true
+    } else {
+      console.log('%cFailed to find elements (roblox or controlBar).', 'font-size: 15px; color: red;')
+      return false
+    }
+  } else {
+    console.log('%cFailed to find iframe with the specified ID.', 'font-size: 15px; color: red;')
+    return false
+  }
+}
+
+function CheckAndAdjust() {
+  var intervalId = setInterval(function () {
+    RunTopLogs()
+    attempts++
+    if (adjustElements()) {
+      clearInterval(intervalId)
+    } else if (attempts >= 30) {
+      console.log(
+        '%cNow.GG Script ran 30 times without finding elements. Stopping script.',
+        'font-size: 15px; color: red;'
+      )
+      clearInterval(intervalId)
+    }
+  }, 5000)
+}
+
+function adjust() {
+  setInterval(function () {
+    var iframe = top.document.getElementById('iframeId')
+
+    if (iframe) {
+      var innerDoc = iframe.contentWindow.document
+
+      var roblox = innerDoc.getElementById('js-game-video')
+      var controlBar = innerDoc.getElementById('ng-control-bar')
+      var customClassElement = innerDoc.querySelector('.sc-rUGft.hLgqJJ')
+
+      if (roblox) {
+        checkAndAdjustStyles(roblox, 'top', ['415px'])
+      }
+
+      if (controlBar) {
+        checkAndAdjustStyles(controlBar, 'top', ['91%'])
+      }
+
+      if (customClassElement) {
+        customClassElement.remove()
+        console.log('%cRemoved class "sc-rUGft hLgqJJ".', 'font-size: 15px; color: green;')
+      }
+    } else {
+      console.log('%cFailed to find iframe with the specified ID.', 'font-size: 15px; color: red;')
+    }
+  }, 3000)
+}
+
+function checkAndAdjustStyles(element, property, targetValues) {
+  if (element) {
+    var currentStyle = window.getComputedStyle(element)[property]
+
+    if (!targetValues.includes(currentStyle)) {
+      element.style[property] = targetValues[0]
+      console.log(`%cAdjusted ${property} to ${targetValues[0]}.`, 'font-size: 15px; color: green;')
+    }
+  } else {
+    console.log('%cElement is null. Skipping check and adjustment.', 'font-size: 15px; color: red;')
+  }
+}
+
+function RunTopLogs() {
+  console.log(
+    '%cdiscord.gg/interstellar',
+    'font-weight: bold; font-size: 39px; color: red; text-shadow: 3px 3px 0 rgb(217,31,38), 6px 6px 0 rgb(226,91,14), 9px 9px 0 rgb(245,221,8), 12px 12px 0 rgb(5,148,68), 15px 15px 0 rgb(2,135,206), 18px 18px 0 rgb(4,77,145), 21px 21px 0 rgb(42,21,113); margin-bottom: 12px; padding: 5%;'
+  )
+}
+
+CheckAndAdjust()
+console.log('%cNow.GG Adjustment script started. Checking every 5 seconds.', 'font-size: 15px; color: blue;')
+alert("please zoom out 80% by clicking the search bar and doing ctrl - once.");
+    </script>
+  </body>
+</html>

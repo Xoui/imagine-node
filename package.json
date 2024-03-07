@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@tomphttp/bare-server-node": "^2.0.1",
-    "serve-static": "^1.15.0"
+    "serve-static": "^1.15.0",
+    "vercel": "^33.5.4"
   }
 }

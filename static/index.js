@@ -6,9 +6,9 @@ if (form && input) {
     event.preventDefault();
     const url = input.value.trim();
     if (url.includes('now.gg')) {
-      processUrl(url, '/now.html'); // Enclose 'now.html' in quotes
+      dnggon(url, '/now.html'); // Enclose 'now.html' in quotes
     } else {
-      processUrl(url, '/go.html');
+      dnggon(url, '/go.html');
     }
   });
 }
@@ -19,7 +19,7 @@ function registerServiceWorker() {
   });
 }
 
-function processUrl(value, path) {
+function dnggon(value, path) {
   registerServiceWorker().then(() => {
     let url = value.trim();
     if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;

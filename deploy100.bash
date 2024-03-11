@@ -5,7 +5,7 @@ BASE_DOMAIN="vercel.app"
 
 
 # Change the for i in {numbertostart..numbertoend} to.
-for i in {555..600}; do
+for i in {600..700}; do
     # Define the subdomain
     SUBDOMAIN="imagine${i}"
 

@@ -10,7 +10,7 @@
     <meta name="keywords" content="shit post" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
     <meta name="googlebot" content="index, follow, snippet" />
-    <link rel="shortcut icon" content="./image.png">
+    <link rel="shortcut icon" href="./image.png">
     <link rel="stylesheet" href="/test.css">
 	<div id="particles-js"></div>
 </head>
@@ -19,7 +19,7 @@
     <nav class="navbar">
         <a href="apps.html" class="app-link">Apps</a>
         <a href="tabs.html" class="game-link"><i class="fas fa-gamepad"></i>Tabs</a>
-      </nav>
+    </nav>
       
     <div class="flex-center logo-wrapper header-center">
         <img class="logo" src="image.png" />
@@ -29,11 +29,38 @@
     </div>
     <div class="flex-center desc">
 
+        <form id="form" class="flex-center">
+            <input id="address" placeholder="put url in" />
+        </form>
 
-    <form id="form" class="flex-center">
-        <input id="address" placeholder="put url in" />
-        
-    </form>
+    <script>
+        // Function to save selected theme to local storage
+        function saveTheme(theme) {
+            localStorage.setItem("selectedTheme", theme);
+            applyTheme(theme);
+        }
+
+        // Function to apply selected theme
+        function applyTheme(theme) {
+            var linkElement = document.querySelector("link[rel='stylesheet']");
+            if (theme === "default") {
+                linkElement.href = "test.css"; // Default CSS file
+            } else if (theme === "midnight") {
+                linkElement.href = "midnight.css"; // Normal CSS file
+            } else if (theme === "light") {
+                linkElement.href = "light.css"; // Light CSS file
+            }
+            // Add more conditions for additional themes as needed
+        }
+
+        // Apply theme before page load
+        window.onload = function() {
+            var savedTheme = localStorage.getItem("selectedTheme");
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            }
+        };
+    </script>
     <script src="index.js"></script>
     <script src="uv/uv.bundle.js"></script>
     <script src="uv/uv.config.js"></script>

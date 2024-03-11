@@ -3,7 +3,8 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
-  background-image: url(Untitled.png);
+  background: url(./background.png) center/cover no-repeat;
+
 }
 
   .main-wrapper {
@@ -101,7 +102,6 @@ form input::placeholder {
   
   canvas {
     display: block;
-    vertical-align: bottom;
   }
   
   /* ---- particles.js container ---- */

@@ -1,10 +1,11 @@
 #!/bin/bash
 
-# Define the base domain
+#vercel stuff.
 BASE_DOMAIN="vercel.app"
 
-# Loop through to deploy from imagine3 to imagine100
-for i in {5..100}; do
+
+# Change the for i in {numbertostart..numbertoend} to.
+for i in {321..500}; do
     # Define the subdomain
     SUBDOMAIN="imagine${i}"
 

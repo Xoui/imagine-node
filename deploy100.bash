@@ -5,13 +5,13 @@ BASE_DOMAIN="vercel.app"
 
 
 # Change the for i in {numbertostart..numbertoend} to.
-for i in {900..1020}; do
+for i in {0..120}; do
     # Define the subdomain
-    SUBDOMAIN="imagine${i}"
+    SUBDOMAIN="prowqximathpage${i}"
 
     # Deploy to Vercel
 
     # Add subdomain alias to the project
-    vercel alias set "https://imagine-node-15rvydiyz-darwinskenderasi.vercel.app" "${SUBDOMAIN}"
+    vercel alias set "https://imagine-node-darwinskenderasi.vercel.app" "${SUBDOMAIN}"
 done
 done

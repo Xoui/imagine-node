@@ -6,50 +6,65 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=true" />
     <title>Imagine</title>
-    <meta name="description" content="made by Fiizy2.0 on discord" />
+    <meta name="description" content="made by pxyfi " />
     <meta name="keywords" content="shit post" />
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#434c5e" />
     <meta name="googlebot" content="index, follow, snippet" />
-    <link rel="shortcut icon" content="./image.png">
-    <link rel="stylesheet" href="test.css">
+    <link rel="shortcut icon" href="./image.png">
+    <link rel="stylesheet" href="/test.css">
 	<div id="particles-js"></div>
 </head>
 
 <body>
     <nav class="navbar">
         <a href="apps.html" class="app-link">Apps</a>
-        <a href="#" class="game-link"><i class="fas fa-gamepad"></i> Games</a>
-      </nav>
+        <a href="tabs.html" class="game-link"><i class="fas fa-gamepad"></i>Tabs</a>
+    </nav>
       
-    <div class="main-wrapper">
     <div class="flex-center logo-wrapper header-center">
         <img class="logo" src="image.png" />
         <h1>Imagine</h1>
+        <p class="minecraft-text">V3.01 Tabs fix</p>
+
     </div>
-    <div id="particles-js"></div>
     <div class="flex-center desc">
-    </div>
 
+        <form id="form" class="flex-center">
+            <input id="address" placeholder="put url in" />
+        </form>
 
-    <form id="form" class="flex-center">
-        <input id="address" placeholder="put url in" />
+    <script>
+        // Function to save selected theme to local storage
         
-    </form>
 
-   
+        // Function to apply selected theme
+        function applyTheme(theme) {
+            var linkElement = document.querySelector("link[rel='stylesheet']");
+            if (theme === "default") {
+                linkElement.href = "test.css"; // Default CSS file
+            } else if (theme === "midnight") {
+                linkElement.href = "midnight.css"; // Normal CSS file
+            } else if (theme === "light") {
+                linkElement.href = "light.css"; // Light CSS file
+            }
+            // Add more conditions for additional themes as needed
+        }
 
-
-
-
- 
-
+        // Apply theme before page load
+        window.onload = function() {
+            var savedTheme = localStorage.getItem("selectedTheme");
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            }
+        };
+    </script>
     <script src="index.js"></script>
     <script src="uv/uv.bundle.js"></script>
     <script src="uv/uv.config.js"></script>
     <script src="register-sw.js"></script>
     <script src="uvstuff.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="particles.js"></script>
+    <script src="js/particles.js"></script>
 </body>
 
 </html>

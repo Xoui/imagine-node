@@ -44,15 +44,15 @@ body {
 
 form input {
   background: none;
-  font-family: inherit;
-  padding: 0px 17px;
-  height: 48px;
-  border: 1px solid #808080;
-  color: var(--text-color);
-  width: 350px;
-  margin-top: 5px;
-  border-radius: 50px;
-  color: #fff;
+    font-family: inherit;
+    padding: 0px 17px;
+    height: 48px;
+    border: 1px solid #808080;
+    color: var(--text-color);
+    width: 350px;
+    margin-top: 5px;
+    border-radius: 50px;
+    color: #fff;
 }
 
 form input:focus {
@@ -60,3 +60,13 @@ form input:focus {
 
   background-color: #ff6666;
 }
+
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0; /* Optionally, remove any default margin */
+}
+

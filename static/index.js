@@ -1,49 +1,63 @@
-"use strict";
-const form = document.getElementById("form");
-const input = document.getElementById("address");
-const error = document.getElementById("error");
-const errorCode = document.getElementById("error-code");
+const form = document.getElementById('form');
+const input = document.getElementById('address');
 
-function isUrl(val = "") {
-  if (
-    /^http(s?):\/\//.test(val) ||
-    (val.includes(".") && val.substr(0, 1) !== " ")
-  )
-    return true;
+if (form && input) {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const url = input.value.trim();
+    if (url.includes('now.gg')) {
+      dnggon(url, '/now.html'); // Enclose 'now.html' in quotes
+    } else {
+      dnggon(url, '/go.html');
+    }
+  });
+}
+
+function registerServiceWorker() {
+  return window.navigator.serviceWorker.register('./sw.js', {
+    scope: __uv$config.prefix,
+  });
+}
+
+function dnggon(value, path) {
+  registerServiceWorker().then(() => {
+    let url = value.trim();
+    if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
+    else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'https://' + url;
+
+    if (url.includes('https://now.gg/') || url.includes('now.gg/')) {
+      sessionStorage.setItem('GoUrl', __uv$config.encodeUrl(url));
+      location.href = 'now.html';
+    } else {
+      sessionStorage.setItem('GoUrl', __uv$config.encodeUrl(url));
+
+      if (path) {
+        location.href = path;
+      } else {
+        window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+      }
+    }
+  });
+}
+
+function go(value) {
+  processUrl(value, '/&');
+}
+
+function now(value) {
+  processUrl(value, '/e');
+}
+
+function blank(value) {
+  processUrl(value);
+}
+
+function isUrl(val = '') {
+  if (/^http(s?):\/\//.test(val) || (val.includes('.') && val.substr(0, 1) !== ' ')) return true;
   return false;
 }
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  try {
-    await registerSW();
-  } catch (err) {
-    error.textContent = "Failed to register service worker.";
-    errorCode.textContent = err.toString();
-    
-  }
-  let url = input.value.trim();
-  if (!isUrl(url)) url = "https://www.google.com/search?q=" + url;
-  else if (!(url.startsWith("https://") || url.startsWith("http://")))
-    url = "http://" + url;
-
-  window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
-});
-
-
-//skidded code from uh ELIXIR he let me.
-
-
-
-
-
-
-
-
-
-
-
-
+//skid begins
 
 
 
@@ -125,7 +139,7 @@ function openURL(url) {
       if (getAboutBlank() === 'on') {
         openAboutBlank(window.location.href.slice(0, -1) + __uv$config.prefix + __uv$config.encodeUrl(url));
       } else {
-        window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+        processUrl(url, '/go.html');
       }
     });
 };
@@ -441,15 +455,3 @@ function showAnnouncement() {
 showAnnouncement();
 
 // end of announcement code
-
-
-
-
-
-
-
-
-
-
-
-

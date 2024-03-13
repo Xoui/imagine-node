@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Settings</title>
+</head>
+<body>
+    <h1>Theme Settings</h1>
+    <label for="theme-select">Select Theme:</label>
+    <select id="theme-select">
+        <option value="default">Default</option>
+        <option value="midnight">midnight</option>
+        <option value="light">Light</option>
+        <!-- Add more options as needed -->
+    </select>
+    <button onclick="saveTheme()">Save Changes</button>
+
+    <script>
+        // Function to save selected theme to local storage
+        function saveTheme() {
+            var selectedTheme = document.getElementById("theme-select").value;
+            localStorage.setItem("selectedTheme", selectedTheme);
+            applyTheme(selectedTheme);
+        }
+
+        // Function to apply selected theme
+        function applyTheme(theme) {
+            var linkElement = document.querySelector("link[rel='stylesheet']");
+            if (theme === "default") {
+                linkElement.href = "test.css"; // Default CSS file
+            } else if (theme === "midnight") {
+                linkElement.href = "midnight.css"; // Normal CSS file
+            } else if (theme === "light") {
+                linkElement.href = "light.css"; // Light CSS file
+            }
+            // Add more conditions for additional themes as needed
+        }
+
+        // Apply theme on page load
+        window.onload = function() {
+            var savedTheme = localStorage.getItem("selectedTheme");
+            if (savedTheme) {
+                applyTheme(savedTheme);
+                document.getElementById("theme-select").value = savedTheme;
+            }
+        };
+    </script>
+</body>
+</html>

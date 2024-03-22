@@ -3,8 +3,14 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
-  background: url(./background.png) center/cover no-repeat;
+        /* background: url(./background.png) center/cover no-repeat; */
+        background: url(./bday.png) center/cover no-repeat;
 
+
+}
+
+#imagine {
+  font-size: 60px;
 }
 
   .main-wrapper {
@@ -215,7 +221,7 @@ form input::placeholder {
 
 
 .minecraft-text {
-  color: #ffd700; /* Yellow color */
+  color: #ee00ff; /* Yellow color */
   font-family: Arial, sans-serif; /* Use a suitable font */
   font-size: 24px; /* Adjust the font size as needed */
   transform: rotate(-10deg); /* Rotate the text to achieve the tilted effect */

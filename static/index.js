@@ -13,11 +13,47 @@ if (form && input) {
   });
 }
 
+
 function registerServiceWorker() {
   return window.navigator.serviceWorker.register('./sw.js', {
     scope: __uv$config.prefix,
   });
 }
+
+
+
+function processUrl(value, defaultPath = '/go.html') {
+    registerServiceWorker().then(() => {
+      let url = value.trim();
+  
+      // If the URL is empty or not valid, redirect to default path (go.html)
+      if (!isUrl(url)) {
+        location.href = defaultPath;
+        return;
+      }
+  
+      // Prefix http:// or https:// if missing
+      if (!(url.startsWith('https://') || url.startsWith('http://'))) {
+        url = 'https://' + url;
+      }
+  
+      // Check if the URL is related to now.gg
+      if (url.includes('https://now.gg/') || url.includes('now.gg/')) {
+        sessionStorage.setItem('GoUrl', __uv$config.encodeUrl(url));
+        location.href = 'now.html'; // Redirect to now.html
+      } else {
+        sessionStorage.setItem('GoUrl', __uv$config.encodeUrl(url));
+  
+        // Redirect to either the specified path or the default path
+        if (defaultPath) {
+          location.href = defaultPath;
+        } else {
+          window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+        }
+      }
+    });
+  }
+  
 
 function dnggon(value, path) {
   registerServiceWorker().then(() => {
